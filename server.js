@@ -81,10 +81,11 @@ app.get("/acercaDe", function(request, response){
 
 /*Método PUT para editar un producto*/
 app.put("/menu/:id", function(request, response){
-	if (request.body.password = app_password) {
+	if (request.body.password == app_password) {
 		var data = {
 			title: request.body.title,
 			description: request.body.description,
+			imageURL: "data.jpg",
 			pricing: request.body.pricing
 		};
 		//Si tiene imagen el producto
@@ -143,6 +144,7 @@ app.post("/menu", function(request, response){
 		var data = {
 			title: request.body.title,
 			description: request.body.description,
+			imageURL: "data.jpg",
 			pricing: request.body.pricing
 		}
 		var product = new Product(data);
@@ -164,6 +166,7 @@ app.post("/menu", function(request, response){
 		}else{
 			product.save(function(err){
 				console.log(product);
+				console.log("URL de la imagen: " + product.image.url);
 				response.redirect("/menu");
 			});
 		}

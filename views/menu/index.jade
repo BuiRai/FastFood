@@ -1,6 +1,7 @@
 extends ../layout.jade
 block contenido
-	h2(class="pacifico big azul text-center") Menu
+	div(class="text-center mediano animated bounceIn")
+		h1(class="pacifico grande azul") Menú
 	h3(class="text-center text-info") Productos de calidad en tu mesa
 	//Recorrer los productos de la base de datos
 	each product in products
@@ -8,4 +9,12 @@ block contenido
 			h3(class="pacifico")= product.title
 			img(src="#{ product.image.url }" class="col-md-4 col-xs-7 no-float") 
 			p(style="margin-top:1em;") #[small(class="lato small") #{ product.pricing } USD]
+	nav(class="navbar navbar-inverse navbar-fixed-bottom")
+			div(class="container-fluid")
+				div
+					ul(class="nav navbar-nav")
+						li
+							a(href="/menu/new") Agregar nuevo producto
+						li
+							a(href="/admin") Administrar productos
 	
