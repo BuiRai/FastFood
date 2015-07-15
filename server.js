@@ -61,11 +61,22 @@ app.get("/", function(request, response){
 	response.render("index");
 });
 
+/*Accediendo al menú*/
 app.get("/menu", function(request, response){
 	Product.find(function(error, documento){
 		if (error) { console.log(error); }
 		response.render("menu/index", { products : documento })
 	});
+});
+
+/*Accediendo al contacto*/
+app.get("/contacto", function(request, response){
+	response.render("contacto");
+});
+
+/*Accediendo al Acerca De*/
+app.get("/acercaDe", function(request, response){
+	response.render("acercaDe");
 });
 
 /*Método PUT para editar un producto*/
